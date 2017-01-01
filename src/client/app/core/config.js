@@ -31,4 +31,12 @@
     routerHelperProvider.configure({ docTitle: config.appTitle + ': ' });
   }
 
+  core.config(promisesConfig);
+
+  promisesConfig.$inject = ['$qProvider'];
+  /* @ngInject */
+  function promisesConfig($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+  }
+
 })();
