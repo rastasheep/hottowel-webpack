@@ -6,13 +6,6 @@ module.exports = function() {
   var root = './';
   var specRunnerFile = 'specs.html';
   var temp = './.tmp/';
-  var wiredep = require('wiredep');
-  var bowerFiles = wiredep({ devDependencies: true })['js'];
-  var bower = {
-    json: require('./bower.json'),
-    directory: './bower_components/',
-    ignorePath: '../..'
-  };
   var nodeModules = 'node_modules';
 
   var config = {
@@ -27,7 +20,7 @@ module.exports = function() {
     build: './build/',
     client: client,
     css: temp + 'styles.css',
-    fonts: bower.directory + 'font-awesome/fonts/**/*.*',
+    fonts: 'node_modules/font-awesome/fonts/**/*.*',
     html: client + '**/*.html',
     htmltemplates: clientApp + '**/*.html',
     images: client + 'images/**/*.*',
@@ -49,7 +42,7 @@ module.exports = function() {
     server: server,
     source: 'src/',
     stubsjs: [
-      bower.directory + 'angular-mocks/angular-mocks.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       client + 'stubs/**/*.js'
     ],
     temp: temp,
@@ -85,12 +78,10 @@ module.exports = function() {
     },
 
     /**
-     * Bower and NPM files
+     * NPM files
      */
-    bower: bower,
     packages: [
       './package.json',
-      './bower.json'
     ],
 
     /**
@@ -103,11 +94,10 @@ module.exports = function() {
      * The sequence of the injections into specs.html:
      *  1 testlibraries
      *      mocha setup
-     *  2 bower
-     *  3 js
-     *  4 spechelpers
-     *  5 specs
-     *  6 templates
+     *  2 js
+     *  3 spechelpers
+     *  4 specs
+     *  5 templates
      */
     testlibraries: [
       nodeModules + '/mocha/mocha.js',
@@ -122,19 +112,25 @@ module.exports = function() {
      * Node settings
      */
     nodeServer: server + 'app.js',
-    defaultPort: '8001'
-  };
+    defaultPort: '8001',
 
-  /**
-   * wiredep and bower settings
-   */
-  config.getWiredepDefaultOptions = function() {
-    var options = {
-      bowerJson: config.bower.json,
-      directory: config.bower.directory,
-      ignorePath: config.bower.ignorePath
-    };
-    return options;
+    /**
+     * Dependency files, until webpack
+     */
+    depFiles: [
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-sanitize/angular-sanitize.js',
+      'node_modules/bootstrap/dist/js/bootstrap.js',
+      'node_modules/moment/moment.js',
+      'node_modules/angular-ui-router/release/angular-ui-router.js',
+      'node_modules/toastr/toastr.js',
+      'node_modules/angular-animate/angular-animate.js',
+      'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+      'node_modules/bardjs/dist/bard.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/sinon/pkg/sinon.js',
+    ]
   };
 
   /**
@@ -149,7 +145,7 @@ module.exports = function() {
   function getKarmaOptions() {
     var options = {
       files: [].concat(
-        bowerFiles,
+        config.depFiles,
         config.specHelpers,
         clientApp + '**/*.module.js',
         clientApp + '**/*.js',

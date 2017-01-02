@@ -120,21 +120,17 @@ gulp.task('templatecache', ['clean-code'], function() {
 });
 
 /**
- * Wire-up the bower dependencies
+ * Wire-up the dependencies
  * @return {Stream}
  */
 gulp.task('wiredep', function() {
-  log('Wiring the bower dependencies into the html');
-
-  var wiredep = require('wiredep').stream;
-  var options = config.getWiredepDefaultOptions();
+  log('Wiring the dependencies into the html');
 
   // Only include stubs if flag is enabled
   var js = args.stubs ? [].concat(config.js, config.stubsjs) : config.js;
 
   return gulp
     .src(config.index)
-    .pipe(wiredep(options))
     .pipe(inject(js, '', config.jsOrder))
     .pipe(gulp.dest(config.client));
 });
@@ -165,19 +161,15 @@ gulp.task('serve-specs', ['build-specs'], function(done) {
 gulp.task('build-specs', ['templatecache'], function(done) {
   log('building the spec runner');
 
-  var wiredep = require('wiredep').stream;
   var templateCache = config.temp + config.templateCache.file;
-  var options = config.getWiredepDefaultOptions();
   var specs = config.specs;
 
   if (args.startServers) {
     specs = [].concat(specs, config.serverIntegrationSpecs);
   }
-  options.devDependencies = true;
 
   return gulp
     .src(config.specRunner)
-    .pipe(wiredep(options))
     .pipe(inject(config.js, '', config.jsOrder))
     .pipe(inject(config.testlibraries, 'testlibraries'))
     .pipe(inject(config.specHelpers, 'spechelpers'))
