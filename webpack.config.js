@@ -31,10 +31,10 @@ module.exports = {
 				loader: 'ngtemplate-loader?relativeTo=' + (path.join(__dirname, 'src/client')) + '/!html-loader'
 			},
 			{
-				test: /\.less$/,
+				test: /\.(css|scss)$/,
 				loader: ExtractTextPlugin.extract({
 					fallbackLoader: 'style-loader',
-					loader: 'css-loader?sourceMap&minimize&importLoaders=1!less-loader?sourceMap'
+					loader: 'css-loader?sourceMap&minimize!sass-loader?sourceMap'
 				})
 			},
 			{
@@ -43,7 +43,7 @@ module.exports = {
 			},
 			{
 				test: /\.(woff|woff2|ttf|eot)$/,
-				loader: 'url-loader?limit=10000&name=fonts/[name].[hash:12].[ext]',
+				loader: 'url-loader?limit=10000&publicPath=/&name=fonts/[name].[hash:12].[ext]',
 			},
 		]
 	},
