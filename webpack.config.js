@@ -22,6 +22,11 @@ module.exports = {
 	module: {
 		loaders:[
 			{
+				test: /\.js$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/,
+			},
+			{
 				test: /\.html$/,
 				loader: 'ngtemplate-loader?relativeTo=' + (path.join(__dirname, 'src/client')) + '/!html-loader'
 			},
