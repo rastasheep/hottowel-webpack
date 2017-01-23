@@ -1,9 +1,9 @@
-<div ng-controller="ShellController as vm">
+<div>
   <header class="clearfix">
     <ht-top-nav navline="vm.navline"></ht-top-nav>
   </header>
   <section id="content" class="content">
-    <div ng-include="'app/layout/sidebar.html'"></div>
+		<sidebar></sidebar>
 
     <div ui-view class="shuffle-animation"></div>
   </section>

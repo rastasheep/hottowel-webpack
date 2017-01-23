@@ -1,8 +1,6 @@
-(function() {
-  'use strict';
+import angular from 'angular';
 
-  angular.module('blocks.router', [
-    'ui.router',
-    'blocks.logger'
-  ]);
-})();
+angular.module('blocks.router', [
+  'ui.router',
+  'blocks.logger'
+]);

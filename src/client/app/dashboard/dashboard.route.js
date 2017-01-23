@@ -1,32 +1,31 @@
-(function() {
-  'use strict';
+import angular from 'angular';
+import dashboardTemplateUrl from './dashboard.html';
 
-  angular
-    .module('app.dashboard')
-    .run(appRun);
+angular
+  .module('app.dashboard')
+  .run(appRun);
 
-  appRun.$inject = ['routerHelper'];
-  /* @ngInject */
-  function appRun(routerHelper) {
-    routerHelper.configureStates(getStates());
-  }
+appRun.$inject = ['routerHelper'];
+/* @ngInject */
+function appRun(routerHelper) {
+  routerHelper.configureStates(getStates());
+}
 
-  function getStates() {
-    return [
-      {
-        state: 'dashboard',
-        config: {
-          url: '/',
-          templateUrl: 'app/dashboard/dashboard.html',
-          controller: 'DashboardController',
-          controllerAs: 'vm',
-          title: 'dashboard',
-          settings: {
-            nav: 1,
-            content: '<i class="fa fa-dashboard"></i> Dashboard'
-          }
+function getStates() {
+  return [
+    {
+      state: 'dashboard',
+      config: {
+        url: '/',
+        templateUrl: dashboardTemplateUrl,
+        controller: 'DashboardController',
+        controllerAs: 'vm',
+        title: 'dashboard',
+        settings: {
+          nav: 1,
+          content: '<i class="fa fa-dashboard"></i> Dashboard'
         }
       }
-    ];
-  }
-})();
+    }
+  ];
+}

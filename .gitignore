@@ -5,6 +5,8 @@ npm-debug.log
 
 # code coverage
 report
+src/client/local.environment.json
+src/client/app/config/environment.js
 
 # other
 .env

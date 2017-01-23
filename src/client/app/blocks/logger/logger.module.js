@@ -1,5 +1,3 @@
-(function() {
-  'use strict';
+import angular from 'angular';
 
-  angular.module('blocks.logger', []);
-})();
+angular.module('blocks.logger', []);

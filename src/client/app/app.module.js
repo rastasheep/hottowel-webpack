@@ -1,12 +1,9 @@
-(function() {
-  'use strict';
+import angular from 'angular';
 
-  angular.module('app', [
-    'app.core',
-    'app.widgets',
-    'app.admin',
-    'app.dashboard',
-    'app.layout'
-  ]);
-
-})();
+angular.module('app', [
+  'app.core',
+  'app.widgets',
+  'app.admin',
+  'app.dashboard',
+  'app.layout'
+]);

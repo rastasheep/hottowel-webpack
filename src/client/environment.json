@@ -1,0 +1,38 @@
+{
+  "production": {
+    "environment": "production",
+    "envConfig" : {
+      "api": {
+        "root": "https://recruit-api.thepodyum.com/api/v1",
+        "domain": "recruit-api.thepodyum.com"
+      }
+    }
+  },
+  "staging": {
+    "environment": "staging",
+    "envConfig" : {
+      "api": {
+        "root": "https://recruit-api-staging.thepodyum.com/api/v1",
+        "domain": "recruit-api-staging.thepodyum.com"
+      }
+    }
+  },
+  "development": {
+    "environment": "development",
+    "envConfig" : {
+      "api": {
+        "root": "http://localhost:8001/api/v1",
+        "domain": "localhost"
+      }
+    }
+  },
+  "test": {
+    "environment": "test",
+    "envConfig" : {
+      "api": {
+        "root": "http://localhost:8001/api/v1",
+        "domain": "localhost"
+      }
+    }
+  }
+}

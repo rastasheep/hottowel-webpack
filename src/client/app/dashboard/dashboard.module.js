@@ -1,8 +1,6 @@
-(function() {
-  'use strict';
+import angular from 'angular';
 
-  angular.module('app.dashboard', [
-    'app.core',
-    'app.widgets'
-  ]);
-})();
+angular.module('app.dashboard', [
+  'app.core',
+  'app.widgets'
+]);
