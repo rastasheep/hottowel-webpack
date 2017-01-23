@@ -1,4 +1,6 @@
 import angular from 'angular';
+import 'angular-sanitize';
+import 'angular-animate';
 
 angular
   .module('app.core', [

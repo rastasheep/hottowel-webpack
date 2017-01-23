@@ -11,7 +11,6 @@ function dataservice($http, $q, exception, logger, envConfig) {
     getPeople: getPeople,
     getMessageCount: getMessageCount
   };
-console.log(envConfig);
 
   return service;
 
