@@ -17,7 +17,7 @@ function getStates() {
       state: 'admin',
       config: {
         url: '/admin',
-				templateUrl: templateUrl,
+        templateUrl: templateUrl,
         controller: 'AdminController',
         controllerAs: 'vm',
         title: 'Admin',

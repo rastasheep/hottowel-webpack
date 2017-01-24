@@ -21,7 +21,7 @@ function htSidebar() {
   };
   return directive;
 
-  function link(scope, element, attrs) {
+  function link(scope, element, _attrs) {
     var $sidebarInner = element.find('.sidebar-inner');
     var $dropdownElement = element.find('.sidebar-dropdown a');
     element.addClass('sidebar');

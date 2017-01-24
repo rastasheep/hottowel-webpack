@@ -8,7 +8,6 @@ angular
 routerHelperProvider.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 /* @ngInject */
 function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvider) {
-  /* jshint validthis:true */
   var config = {
     docTitle: undefined,
     resolveAlways: {}
@@ -64,7 +63,7 @@ function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvi
       // On routing error, go to the dashboard.
       // Provide an exit clause if it tries to do it twice.
       $rootScope.$on('$stateChangeError',
-        function(event, toState, toParams, fromState, fromParams, error) {
+        function(_event, toState, _toParams, _fromState, _fromParams, error) {
           if (handlingStateChangeError) {
             return;
           }
@@ -91,7 +90,7 @@ function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvi
 
     function updateDocTitle() {
       $rootScope.$on('$stateChangeSuccess',
-        function(event, toState, toParams, fromState, fromParams) {
+        function(_event, toState, _toParams, _fromState, _fromParams) {
           stateCounts.changes++;
           handlingStateChangeError = false;
           var title = config.docTitle + ' ' + (toState.title || '');

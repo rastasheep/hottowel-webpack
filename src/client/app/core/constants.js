@@ -1,6 +1,6 @@
 import angular from 'angular';
-import toastr from 'toastr';
 import moment from 'moment';
+import toastr from 'toastr';
 
 angular
   .module('app.core')

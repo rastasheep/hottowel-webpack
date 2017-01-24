@@ -1,4 +1,4 @@
-/* jshint -W117, -W030 */
+/* eslint-disable no-undef */
 describe('AdminController', function() {
   var controller;
 

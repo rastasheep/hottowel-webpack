@@ -1,4 +1,4 @@
-/* jshint -W079 */
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": 'mockData' }]*/
 var mockData = (function() {
   return {
     getMockPeople: getMockPeople,

@@ -1,5 +1,3 @@
-/* jshint -W117, -W030 */
-/* jshint multistr:true */
 describe('htSidebar directive: ', function() {
   var dropdownElement;
   var el;

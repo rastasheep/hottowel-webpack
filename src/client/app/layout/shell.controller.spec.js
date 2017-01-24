@@ -1,4 +1,3 @@
-/* jshint -W117, -W030 */
 describe('ShellController', function() {
   var controller;
 

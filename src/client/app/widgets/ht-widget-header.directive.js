@@ -26,7 +26,7 @@ function htWidgetHeader() {
   };
   return directive;
 
-  function link(scope, element, attr) {
+  function link(scope, element, _attr) {
     scope.toggleContent = function() {
       if (scope.allowCollapse === 'true') {
         var content = angular.element(element).siblings('.widget-content');

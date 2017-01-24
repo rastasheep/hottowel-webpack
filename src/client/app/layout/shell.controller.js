@@ -1,5 +1,4 @@
 import angular from 'angular';
-import sidebarTemplateUrl from './sidebar.html';
 
 angular
   .module('app.layout')

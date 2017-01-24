@@ -8,6 +8,7 @@
     "test": "gulp test",
     "build": "rimraf build && webpack",
     "serve-dev": "node script/ng-config.js && node script/dev-server.js",
+    "vet-client": "eslint -c .eslintrc.client.json src/client",
     "vet-styles": "stylelint --syntax scss src/client/styles/**/*.scss"
   },
   "dependencies": {
@@ -114,6 +115,8 @@
     "sass-loader": "^4.1.1",
 
     "stylelint": "^7.7.1",
-    "stylelint-scss": "^1.4.1"
+    "stylelint-scss": "^1.4.1",
+    "eslint": "^3.14.0",
+    "babel-eslint": "^7.1.1"
   }
 }

@@ -1,6 +1,7 @@
+/* eslint-disable sort-imports */
 import angular from 'angular';
-import 'angular-sanitize';
 import 'angular-animate';
+import 'angular-sanitize';
 
 angular
   .module('app.core', [

@@ -11,7 +11,6 @@ angular
  * Must configure the exception handling
  */
 function exceptionHandlerProvider() {
-  /* jshint validthis:true */
   this.config = {
     appErrorPrefix: undefined
   };

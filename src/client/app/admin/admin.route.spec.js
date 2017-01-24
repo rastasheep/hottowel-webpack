@@ -1,4 +1,3 @@
-/* jshint -W117, -W030 */
 describe('admin routes', function() {
   describe('state', function() {
     var view = 'app/admin/admin.html';

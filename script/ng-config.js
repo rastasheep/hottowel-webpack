@@ -14,12 +14,13 @@ const localConfig = {
 };
 const envConfig = require(envConfigPath)[environment];
 
-const compiledTemplate = _.template(`
+const compiledTemplate = _.template(`/* eslint-disable quotes */
 import angular from 'angular';
 
 angular
-  .module("app.config", [])<% Object.keys(constants).forEach(function(key) { %>
-	.constant('<%= key %>', <%= JSON.stringify(constants[key]) %>)<% }); %>;
+  .module('app.config', [])<% Object.keys(constants).forEach(function(key) { %>
+  .constant('<%= key %>', <%= JSON.stringify(constants[key]) %>)<% }); %>;
+
 `);
 
 try {

@@ -1,4 +1,3 @@
-/* jshint -W117, -W030 */
 describe('blocks.exception', function() {
   var exceptionHandlerProvider;
   var mocks = {
@@ -51,13 +50,11 @@ describe('blocks.exception', function() {
       }));
 
       it('manual error is handled by decorator', function() {
-        var exception;
         exceptionHandlerProvider.configure(mocks.prefix);
         try {
           $rootScope.$apply(functionThatWillThrow);
         }
         catch (ex) {
-          exception = ex;
           expect(ex.message).to.equal(mocks.prefix + mocks.errorMessage);
         }
       });

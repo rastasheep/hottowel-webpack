@@ -1,12 +1,7 @@
-/* jshint -W117, -W030 */
+/* eslint-disable no-undef */
 describe('layout', function() {
   describe('sidebar', function() {
     var controller;
-    var views = {
-      dashboard: 'app/dashboard/dashboard.html',
-      customers: 'app/customers/customers.html'
-    };
-
     beforeEach(function() {
       module('app.layout', bard.fakeToastr);
       bard.inject('$controller', '$httpBackend', '$location',
