@@ -7,12 +7,13 @@
     "start": "node src/server/app.js",
     "test": "gulp test",
     "build": "rimraf build && webpack",
-    "serve-dev": "node script/ng-config.js && node script/dev-server.js",
-    "vet-client": "eslint -c .eslintrc.client.json src/client",
-    "vet-styles": "stylelint --syntax scss src/client/styles/**/*.scss",
-    "analysis": "npm run analysis-client && npm run analysis-api",
-    "analysis-client": "plato -t 'Client' -r -d ./report/plato/client -e .eslintrc.client.json -x .spec.js ./src/client/app/**/*.js",
-    "analysis-api": "plato -t 'API' -r -d ./report/plato/api -x .spec.js ./src/server/**/*.js"
+    "serve-dev": "node ./script/ng-config.js && node ./script/dev-server.js",
+    "vet": "npm run vet:client && npm run vet:styles",
+    "vet:client": "eslint -c .eslintrc.client.json src/client",
+    "vet:styles": "stylelint --syntax scss src/client/styles/**/*.scss",
+    "analysis": "npm run analysis:client && npm run analysis:server",
+    "analysis:client": "plato -t 'Client' -r -d ./report/plato/client -e .eslintrc.client.json -x .spec.js ./src/client/app/**/*.js",
+    "analysis:server": "plato -t 'API' -r -d ./report/plato/api -x .spec.js ./src/server/**/*.js"
   },
   "dependencies": {
     "body-parser": "^1.8.2",
