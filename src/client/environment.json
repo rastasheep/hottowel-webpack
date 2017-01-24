@@ -21,7 +21,7 @@
     "environment": "development",
     "envConfig" : {
       "api": {
-        "root": "http://localhost:8001/api/v1",
+        "root": "http://localhost:3001/api/v1",
         "domain": "localhost"
       }
     }
@@ -30,7 +30,7 @@
     "environment": "test",
     "envConfig" : {
       "api": {
-        "root": "http://localhost:8001/api/v1",
+        "root": "http://localhost:3001/api/v1",
         "domain": "localhost"
       }
     }

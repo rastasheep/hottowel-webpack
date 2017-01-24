@@ -1,12 +1,19 @@
-var path = require('path');
-var WebpackDevServer = require('webpack-dev-server');
-var webpack = require('webpack');
-var config = require('../webpack.config.js');
+const path = require('path');
+const process = require('process');
+const nodemon = require('nodemon');
+const WebpackDevServer = require('webpack-dev-server');
+const webpack = require('webpack');
+const config = require('../webpack.config.js');
 
-config.entry.app.unshift('webpack-dev-server/client?http://0.0.0.0:3000/');
+const environment = process.env.NODE_ENV || 'development';
+const domain = process.env.DOMAIN || '0.0.0.0';
+const clientPort = process.env.CLIENT_PORT || 3000;
+const serverPort = process.env.PORT || 3001;
 
-var compiler = webpack(config);
-var server = new WebpackDevServer(compiler, {
+config.entry.app.unshift(`webpack-dev-server/client?http://${domain}:${clientPort}/`);
+
+const compiler = webpack(config);
+const server = new WebpackDevServer(compiler, {
   filename: config.output.filename,
   publicPath: config.output.publicPath,
   historyApiFallback: true,
@@ -14,4 +21,26 @@ var server = new WebpackDevServer(compiler, {
     colors: true
   }
 });
-server.listen(3000, '0.0.0.0', function() {});
+server.listen(clientPort, domain, function() {});
+
+nodemon({
+  script: './src/server/app.js',
+  delay: 1,
+  watch: ['./src/server'],
+  ext: 'js json',
+  env: {
+    'PORT': serverPort,
+    'NODE_ENV': environment,
+  },
+});
+
+nodemon.on('start', function() {
+  console.log('*** nodemon started');
+}).on('restart', function(ev) {
+  console.log('*** nodemon restarted');
+  console.log('files changed:\n' + ev);
+}).on('crash', function() {
+  console.log('*** nodemon crashed: script crashed for some reason');
+}).on('exit', function() {
+  console.log('*** nodemon exited cleanly');
+});
