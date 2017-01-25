@@ -122,6 +122,7 @@
     "sass-loader": "^4.1.1",
     "null-loader": "^0.1.1",
     "image-webpack-loader": "^3.1.0",
+    "postcss-loader": "^1.2.2",
 
     "stylelint": "^7.7.1",
     "stylelint-scss": "^1.4.1",
