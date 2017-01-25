@@ -35,8 +35,14 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url-loader?limit=10000&name=images/[name].[hash:12].[ext]',
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'url-loader?limit=10000&name=images/[name].[hash:12].[ext]',
+          {
+            loader: 'image-webpack-loader',
+            query: { bypassOnDebug: true, optimizationLevel: 4, interlaced: false, svgo:{ plugins: [{'removeUselessDefs': false}]}}
+          }
+        ]
       },
       {
         test: /\.(woff|woff2|ttf|eot)$/,
