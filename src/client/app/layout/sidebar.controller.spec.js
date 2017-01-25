@@ -1,9 +1,10 @@
+import mockData from '../..//test-helpers/mock-data';
 /* eslint-disable no-undef */
 describe('layout', function() {
   describe('sidebar', function() {
     var controller;
     beforeEach(function() {
-      module('app.layout', bard.fakeToastr);
+      angular.mock.module('app.layout', bard.fakeToastr);
       bard.inject('$controller', '$httpBackend', '$location',
         '$rootScope', '$state', 'routerHelper');
     });

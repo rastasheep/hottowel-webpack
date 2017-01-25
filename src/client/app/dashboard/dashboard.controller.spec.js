@@ -1,3 +1,5 @@
+import mockData from '../..//test-helpers/mock-data';
+
 /* eslint-disable no-undef */
 describe('DashboardController', function() {
   var controller;

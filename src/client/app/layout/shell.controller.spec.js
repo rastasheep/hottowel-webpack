@@ -2,6 +2,9 @@ describe('ShellController', function() {
   var controller;
 
   beforeEach(function() {
+    angular.mock.module('ui.bootstrap');
+    angular.mock.module('app.core');
+
     bard.appModule('app.layout');
     bard.inject('$controller', '$q', '$rootScope', '$timeout', 'dataservice');
   });
