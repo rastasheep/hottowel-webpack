@@ -5,6 +5,7 @@ angular
   .module('app.layout')
   .directive('htTopNav', htTopNav);
 
+htTopNav.$inject = [];
 /* @ngInject */
 function htTopNav() {
   var directive = {
@@ -19,7 +20,6 @@ function htTopNav() {
   };
 
   TopNavController.$inject = ['$scope'];
-
   /* @ngInject */
   function TopNavController($scope) {
     $scope.isCollapsed = true;

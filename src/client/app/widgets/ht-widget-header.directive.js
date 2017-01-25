@@ -5,6 +5,7 @@ angular
   .module('app.widgets')
   .directive('htWidgetHeader', htWidgetHeader);
 
+htWidgetHeader.$inject = [];
 /* @ngInject */
 function htWidgetHeader() {
   //Usage:

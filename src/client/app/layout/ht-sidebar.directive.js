@@ -4,6 +4,7 @@ angular
   .module('app.layout')
   .directive('htSidebar', htSidebar);
 
+htSidebar.$inject = [];
 /* @ngInject */
 function htSidebar() {
   // Opens and closes the sidebar menu.
