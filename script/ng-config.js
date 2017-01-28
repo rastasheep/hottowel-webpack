@@ -21,6 +21,8 @@ angular
   .module('app.config', [])<% Object.keys(constants).forEach(function(key) { %>
   .constant('<%= key %>', <%= JSON.stringify(constants[key]) %>)<% }); %>;
 
+export default 'app.config';
+
 `);
 
 try {
@@ -29,8 +31,6 @@ try {
   /* No local configuration found */
 }
 
-const ngConfig = Object.assign({}, envConfig, localConfig);
+const ngConfig = _.merge({}, envConfig, localConfig);
 
-console.log('Generating ng-cofig values for ' + environment + ' environment');
-
-fs.writeFileSync(modulePath, compiledTemplate({constants: ngConfig}));
+fs.writeFileSync(modulePath, compiledTemplate({constants: ngConfig}), { flag: 'w' });

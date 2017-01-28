@@ -6,3 +6,5 @@ angular
   .constant('environment', "development")
   .constant('envConfig', {"api":{"root":"http://local.go:3001","domain":"local.go"}});
 
+export default 'app.config';
+

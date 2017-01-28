@@ -1,11 +1,14 @@
-/* eslint-disable sort-imports */
 import angular from 'angular';
-import 'angular-animate';
-import 'angular-sanitize';
+import angularAnimate from 'angular-animate';
+import angularSanitize from 'angular-sanitize';
+import appConfig from '../config';
+import blocksException from '../blocks/exception';
+import blocksLogger from '../blocks/logger';
+import blocksRouter from '../blocks/router';
 
 angular
   .module('app.core', [
-    'ngAnimate', 'ngSanitize',
-    'blocks.exception', 'blocks.logger', 'blocks.router',
-    'ui.router', 'app.config'
+    angularAnimate, angularSanitize,
+    blocksException, blocksLogger, blocksRouter,
+    appConfig,
   ]);

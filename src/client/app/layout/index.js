@@ -8,3 +8,5 @@ import './shell.directive.js';
 
 import './sidebar.controller.js';
 import './sidebar.directive.js';
+
+export default 'app.layout';
