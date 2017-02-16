@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const singleRun = !!process.env.SINGLE_RUN;
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = function(config) {
   config.set({
@@ -9,7 +9,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    singleRun: singleRun,
+    singleRun: true,
 
     frameworks: ['mocha', 'chai', 'sinon', 'chai-sinon'],
     basePath: './',
@@ -38,6 +38,9 @@ module.exports = function(config) {
         ],
       },
       plugins: [
+        new WebpackShellPlugin({
+          onBuildStart:['node ./script/ng-config.js test'],
+        }),
         new webpack.ProvidePlugin({
           'window.jQuery': 'jquery',
           jQuery: 'jquery',
