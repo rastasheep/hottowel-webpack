@@ -7186,6 +7186,10 @@ webpack-dev-server@^2.3.0:
     webpack-dev-middleware "^1.9.0"
     yargs "^6.0.0"
 
+webpack-shell-plugin@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/webpack-shell-plugin/-/webpack-shell-plugin-0.5.0.tgz#29b8a1d80ddeae0ddb10e729667f728653c2c742"
+
 webpack-sources@^0.1.0, webpack-sources@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-0.1.4.tgz#ccc2c817e08e5fa393239412690bb481821393cd"

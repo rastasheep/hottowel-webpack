@@ -3,7 +3,7 @@ const path = require('path');
 const _ = require('lodash');
 var git = require('git-rev-sync');
 
-const environment = process.env.NODE_ENV || 'development';
+const environment = process.argv[2] || 'development';
 const localConfigPath = path.join(process.cwd(), 'src/client/local.environment.json');
 const envConfigPath = path.join(process.cwd(), 'src/client/environment.json');
 const modulePath = path.join(process.cwd(), 'src/client/app/config/index.js');

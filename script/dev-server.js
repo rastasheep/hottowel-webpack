@@ -3,12 +3,15 @@ const process = require('process');
 const nodemon = require('nodemon');
 const WebpackDevServer = require('webpack-dev-server');
 const webpack = require('webpack');
-const config = require('../webpack.config.js');
 
 const environment = process.env.NODE_ENV || 'development';
 const domain = process.env.DOMAIN || '0.0.0.0';
 const clientPort = process.env.CLIENT_PORT || 3000;
 const serverPort = process.env.PORT || 3001;
+const config = require('../webpack.config.js')({
+  debug: true,
+  stage: environment,
+});
 
 config.entry.app.unshift(`webpack-dev-server/client?http://${domain}:${clientPort}/`);
 
