@@ -2,7 +2,7 @@ describe('ShellController', function() {
   var controller;
 
   beforeEach(function() {
-    angular.mock.module('ui.bootstrap');
+    angular.mock.module('ui.bootstrap.collapse');
     angular.mock.module('app.core');
 
     bard.appModule('app.layout');
