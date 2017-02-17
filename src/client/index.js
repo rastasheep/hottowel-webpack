@@ -17,8 +17,6 @@ import '!!file-loader?name=[name].[ext]!./mstile-70x70.png';
 import './styles/styles.scss';
 
 import 'jquery';
-// TODO: for b4
-// import 'imports-loader?window.Tether=tether!bootstrap';
-import 'bootstrap-sass/assets/javascripts/bootstrap';
+import 'imports-loader?Tether=tether!bootstrap';
 
 import './app';

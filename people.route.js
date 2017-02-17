@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 angular
-  .module('app.dashboard')
+  .module('app.people')
   .controller('DashboardController', DashboardController);
 
 DashboardController.$inject = ['$q', 'dataservice', 'logger'];

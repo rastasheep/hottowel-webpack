@@ -1,8 +1,8 @@
 import angular from 'angular';
-import appCore from '../core';
+import blocksRouter from '../blocks/router';
 import bootstrapCollapse from 'angular-ui-bootstrap/src/collapse';
 
 angular.module('app.layout', [
-  appCore,
+  blocksRouter,
   bootstrapCollapse,
 ]);

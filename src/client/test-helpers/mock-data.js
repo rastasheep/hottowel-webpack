@@ -1,9 +1,9 @@
 function getMockStates() {
   return [
     {
-      state: 'dashboard',
+      state: 'app.dashboard',
       config: {
-        url: '/',
+        url: '/dashboard',
         templateUrl: 'app/dashboard/dashboard.html',
         title: 'dashboard',
         settings: {

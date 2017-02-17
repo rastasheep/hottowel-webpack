@@ -1,0 +1,12 @@
+// Colors
+
+$brand-inverse: color('blue', 700);
+
+// Navbar
+
+$navbar-inverse-color: color('white');
+$navbar-inverse-active-color: color('blue', 100);
+$navbar-inverse-hover-color: color('blue', 100);
+
+@import '~bootstrap/scss/bootstrap';
+@import 'navbar';

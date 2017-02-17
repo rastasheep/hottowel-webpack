@@ -1,0 +1,36 @@
+<header class="navbar navbar-inverse bg-inverse navbar-toggleable-sm bd-navbar">
+  <nav class="container">
+
+    <div class="d-flex justify-content-between hidden-md-up">
+      <a class="navbar-brand" href="/">
+        <img src="../../images/logo-nav@2x.png" height="36" width="135" alt="">
+      </a>
+      <div class="d-flex flex-column justify-content-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bd-main-nav">
+      <a class="navbar-brand hidden-sm-down" href="/">
+        <img src="../../images/logo-nav@2x.png" height="36" width="135" alt="">
+      </a>
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item text-uppercase" ui-sref-active="{'active': 'app.people.**'}">
+          <a class="nav-link" ui-sref="app.people.index">
+            People
+          </a>
+        </li>
+        <li class="nav-item text-uppercase" ui-sref-active="{'active': 'app.events.**'}">
+          <a class="nav-link" ui-sref="app.events.index">
+            Events
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+<ui-view/>
