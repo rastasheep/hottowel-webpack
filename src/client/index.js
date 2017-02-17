@@ -14,6 +14,8 @@ import '!!file-loader?name=[name].[ext]!./mstile-70x70.png';
   because of https://github.com/jtangelder/sass-loader/issues/164
   so we can split them later to lib.css
 */
+import 'toastr/toastr.scss';
+
 import './styles/styles.scss';
 
 import 'jquery';
