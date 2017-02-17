@@ -1,5 +1,14 @@
+@import 'colors';
+@import '~angular-loading-bar/build/loading-bar.css';
+
 body {
   padding-top: 60px;
+}
+
+.ion {
+  display: inline-block;
+  vertical-align: baseline;
+  fill: currentColor;
 }
 
 [ng\:cloak],
@@ -13,8 +22,14 @@ body {
   display: none;
 }
 
-.ion {
-  display: inline-block;
-  vertical-align: baseline;
-  fill: currentColor;
+#loading-bar { /* stylelint-disable-line selector-no-id */
+  z-index: 1070;
+
+  .bar {
+    background: color('red', 800) !important; /* stylelint-disable-line declaration-no-important */
+  }
+
+  .peg {
+    box-shadow: 0 0 10px color('red', 800), 0 0 5px color('red', 800) !important; /* stylelint-disable-line declaration-no-important */
+  }
 }
