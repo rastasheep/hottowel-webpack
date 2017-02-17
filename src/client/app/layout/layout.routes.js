@@ -1,6 +1,6 @@
 import angular from 'angular';
-import layoutTemplateUrl from './layout.html';
 import fourOhFourTemplateUrl from './404.html';
+import layoutTemplateUrl from './layout.html';
 
 angular
 .module('app.layout')
