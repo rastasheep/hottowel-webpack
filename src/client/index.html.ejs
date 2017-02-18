@@ -34,20 +34,15 @@
 </head>
 
 <body>
-  <div>
-		<shell></shell>
+  <%= require('!!html-loader!./partials/icons.html') %>
 
-    <div id="splash-page" ng-show="showSplash">
-      <div class="page-splash">
-        <div class="page-splash-message">
-          hottowel-webpack
-        </div>
-        <div class="progress progress-striped active page-progress-bar">
-          <div class="bar"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="app-loader__container" ng-show="showSplash">
+		<div class="app-loader">
+		</div>
+	</div>
+
+	<div ui-view ng-cloak>
+	</div>
 
   <% for (var js in htmlWebpackPlugin.files.js) { %>
   <script src="/<%= htmlWebpackPlugin.files.js[js] %>"></script>

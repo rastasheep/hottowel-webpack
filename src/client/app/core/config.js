@@ -37,3 +37,11 @@ promisesConfig.$inject = ['$qProvider'];
 function promisesConfig($qProvider) {
   $qProvider.errorOnUnhandledRejections(false);
 }
+
+core.config(loadingBarConfig);
+
+loadingBarConfig.$inject = ['cfpLoadingBarProvider'];
+/* @ngInject */
+function loadingBarConfig(cfpLoadingBarProvider) {
+  cfpLoadingBarProvider.includeSpinner = false;
+}

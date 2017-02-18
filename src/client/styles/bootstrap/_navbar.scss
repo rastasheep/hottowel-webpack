@@ -1,0 +1,23 @@
+.navbar {
+  @include drop-shadow(1);
+}
+
+.nav-item {
+  &:not(.active) {
+    @include media-breakpoint-up(md) {
+      margin-top: .25rem;
+    }
+  }
+
+  &.active {
+    &::before {
+      @include media-breakpoint-up(md) {
+        content: ' ';
+        border-top: 4px solid color('blue', 100);
+        display: block;
+        margin-top: -.5rem;
+        margin-bottom: .5rem;
+      }
+    }
+  }
+}

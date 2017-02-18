@@ -1,0 +1,32 @@
+<jumbotron
+  background="stars"
+  heading="Angular contributors"
+  description="Contributions to master, excluding merge commits">
+</jumbotron>
+
+<div class="container" ng-show="peopleIndexCtrl.people.$resolved">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Commits</th>
+        <th>Additions / Deletions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in peopleIndexCtrl.people">
+        <td>{{ $index + 1 }}</td>
+        <td>
+          <a ng-href="https://github.com/{{ person.username }}">
+            {{ person.username }}
+          </a>
+        </td>
+        <td>{{ person.commits }}</td>
+        <td>
+          {{ person.additions + '++ / ' + person.deletions + '--' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
