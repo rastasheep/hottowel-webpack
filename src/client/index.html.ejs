@@ -38,12 +38,11 @@
 
 	<div class="app-loader__container" ng-show="showSplash">
 		<div class="app-loader">
-			Loading
 		</div>
 	</div>
 
-  <div ui-view ng-cloak>
-  </div>
+	<div ui-view ng-cloak>
+	</div>
 
   <% for (var js in htmlWebpackPlugin.files.js) { %>
   <script src="/<%= htmlWebpackPlugin.files.js[js] %>"></script>

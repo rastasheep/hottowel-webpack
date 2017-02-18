@@ -33,3 +33,51 @@ body {
     box-shadow: 0 0 10px color('red', 800), 0 0 5px color('red', 800) !important; /* stylelint-disable-line declaration-no-important */
   }
 }
+
+.app-loader {
+  &__container {
+    width: 100%;
+    height: 100vh;
+    margin: -60px 0 0;
+  }
+
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background-color: color('blue', 700);
+  border-radius: 50%;
+
+  &::after {
+    content: '';
+    box-sizing: initial;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    border: 0 solid color('white');
+    transform: translate(-50%, -50%);
+    animation: bubble-loader 1s ease-out forwards infinite;
+    will-change: width, height, border;
+  }
+}
+
+@keyframes bubble-loader {
+  0% {
+    border: 0 solid white;
+  }
+
+  20% {
+    border: 8px solid white;
+    width: 0%;
+    height: 0%;
+  }
+
+  100% {
+    border: 8px solid white;
+    width: 100%;
+    height: 100%;
+  }
+}
