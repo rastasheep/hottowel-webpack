@@ -12,5 +12,5 @@ angular
   .module('app.core', [
     angularAnimate, angularSanitize, angularLoadingBar,
     blocksException, blocksLogger, blocksRouter,
-    appConfig,
+    appConfig, appConstants,
   ]);
