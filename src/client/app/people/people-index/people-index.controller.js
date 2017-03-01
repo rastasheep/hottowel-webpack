@@ -14,7 +14,7 @@ class PeopleIndexController {
     this.people.$resolved = false;
 
     var promises = [this.getMessageCount(), this.getPeople()];
-    return this.$q.all(promises).then(() => {
+    this.$q.all(promises).then(() => {
       this.logger.info('Activated People Index View');
     });
   }

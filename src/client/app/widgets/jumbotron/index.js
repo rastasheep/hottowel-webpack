@@ -1,4 +1,4 @@
 import './jumbotron.module.js';
-import './jumbotron.directive.js';
+import './jumbotron.component.js';
 
 export default 'widgets.jumbotron';
