@@ -1,32 +1,27 @@
 import angular from 'angular';
 
-angular
-  .module('app.core')
-  .factory('dataservice', dataservice);
+class DataService {
+  /* @ngInject */
+  constructor($http, $q, exception, envConfig) {
+    this.$http = $http;
+    this.$q = $q;
+    this.exception = exception;
+    this.envConfig = envConfig;
+  }
 
-dataservice.$inject = ['$http', '$q', 'exception', 'logger', 'envConfig'];
-/* @ngInject */
-function dataservice($http, $q, exception, logger, envConfig) {
-  var service = {
-    getPeople: getPeople,
-    getMessageCount: getMessageCount
-  };
+  getMessageCount() {
+    return this.$q.when(72);
+  }
 
-  return service;
-
-  function getMessageCount() { return $q.when(72); }
-
-  function getPeople() {
-    return $http.get(envConfig.api.root + '/api/people')
-      .then(success)
-      .catch(fail);
-
-    function success(response) {
-      return response.data;
-    }
-
-    function fail(e) {
-      return exception.catcher('XHR Failed for getPeople')(e);
-    }
+  getPeople() {
+    return this.$http.get(this.envConfig.api.root + '/api/people')
+      .then((response) => response.data)
+      .catch((ex) => this.exception.catcher('XHR Failed for getPeople')(ex));
   }
 }
+DataService.$inject = ['$http', '$q', 'exception', 'envConfig'];
+
+angular
+  .module('app.core')
+  .service('dataservice', DataService);
+
