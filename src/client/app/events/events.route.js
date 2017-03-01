@@ -1,5 +1,4 @@
 import angular from 'angular';
-import indexTemplateUrl from './event-index/event-index.html';
 
 angular
   .module('app.events')
@@ -25,9 +24,7 @@ function getStates() {
       state: 'app.events.index',
       config: {
         url: '',
-        controller: 'EventIndexController',
-        controllerAs: 'eventIndexCtrl',
-        templateUrl: indexTemplateUrl,
+        component: 'eventIndex',
         title: 'Event Index',
       }
     },

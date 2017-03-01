@@ -1,38 +1,39 @@
 import angular from 'angular';
 
-angular
-  .module('app.people.peopleIndex')
-  .controller('PeopleIndexController', PeopleIndexController);
+class PeopleIndexController {
+  /* @ngInject */
+  constructor ($q, dataservice, logger) {
+    this.$q = $q;
+    this.dataservice = dataservice;
+    this.logger = logger;
+  }
 
-PeopleIndexController.$inject = ['$q', 'dataservice', 'logger'];
-/* @ngInject */
-function PeopleIndexController($q, dataservice, logger) {
-  var vm = this;
-  vm.messageCount = 0;
-  vm.people = [];
-  vm.people.$resolved = false;
+  $onInit() {
+    this.messageCount = 0;
+    this.people = [];
+    this.people.$resolved = false;
 
-  activate();
-
-  function activate() {
-    var promises = [getMessageCount(), getPeople()];
-    return $q.all(promises).then(function() {
-      logger.info('Activated People Index View');
+    var promises = [this.getMessageCount(), this.getPeople()];
+    return this.$q.all(promises).then(() => {
+      this.logger.info('Activated People Index View');
     });
   }
 
-  function getMessageCount() {
-    return dataservice.getMessageCount().then(function(data) {
-      vm.messageCount = data;
-      return vm.messageCount;
+  getMessageCount() {
+    return this.dataservice.getMessageCount().then((data) => {
+      this.messageCount = data;
     });
   }
 
-  function getPeople() {
-    return dataservice.getPeople().then(function(data) {
-      vm.people = data;
-      vm.people.$resolved = true;
-      return vm.people;
+  getPeople() {
+    return this.dataservice.getPeople().then((data) => {
+      this.people = data;
+      this.people.$resolved = true;
     });
   }
 }
+PeopleIndexController.$inject = ['$q', 'dataservice', 'logger'];
+
+angular
+  .module('app.people.peopleIndex')
+  .controller('PeopleIndexController', PeopleIndexController);
