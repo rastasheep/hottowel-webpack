@@ -1,5 +1,4 @@
 import angular from 'angular';
-import indexTemplateUrl from './people-index/people-index.html';
 
 angular
   .module('app.people')
@@ -25,9 +24,7 @@ function getStates() {
       state: 'app.people.index',
       config: {
         url: '',
-        controller: 'PeopleIndexController',
-        controllerAs: 'peopleIndexCtrl',
-        templateUrl: indexTemplateUrl,
+        component: 'peopleIndex',
         title: 'People Index',
       }
     },
